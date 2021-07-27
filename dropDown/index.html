@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DropDown</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: sans-serif;
+      }
+
+      nav {
+        display: flex;
+        background-color: rgb(238, 167, 75);
+        width: 100%;
+        height: 10vh;
+        margin: auto;
+        padding: 2rem 0;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      button {
+        border: 0;
+        background: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0;
+      }
+
+      button a {
+        color: #272727;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      button a:hover {
+        transform: scale(0.95);
+      }
+
+      .projects__wrapper,
+      .services__wrapper {
+        position: relative;
+      }
+
+      .projects,
+      .services {
+        list-style: none;
+        position: absolute;
+        margin-top: 0.5rem;
+        width: 160px;
+        height: 100px;
+        opacity: 0;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: opacity 0.3s ease;
+      }
+
+      ul a {
+        color: #bb6e0a;
+        font-size: 0.9rem;
+      }
+
+      ul a:hover {
+        color: darkred;
+      }
+
+      .rotateIcon {
+        transform: rotate(180deg);
+      }
+
+      .showLists {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <button><a href="#">Home</a></button>
+      <div class="projects__wrapper">
+        <button class="btnProjects">
+          <a href="#">Projects </a>
+          <img src="./more.svg" alt="show more" class="imgProjects" />
+        </button>
+        <ul class="projects">
+          <li><a href="#">counter</a></li>
+          <li><a href="#">custum signage</a></li>
+          <li><a href="#">color displayer </a></li>
+        </ul>
+      </div>
+      <div class="services__wrapper">
+        <button class="btnServices">
+          <a href="#">Services</a>
+          <img src="./more.svg" alt="show more" class="imgServices" />
+        </button>
+        <ul class="services">
+          <li><a href="#">web dev</a></li>
+          <li><a href="#">app dev</a></li>
+          <li><a href="#">machine learning</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      const showProjects = document.querySelector(".btnProjects");
+      const showServices = document.querySelector(".btnServices");
+      const imgServices = document.querySelector(".imgServices");
+      const imgProjects = document.querySelector(".imgProjects");
+      const projectsList = document.querySelector(".projects__wrapper ul");
+      const servicesList = document.querySelector(".services");
+
+      showProjects.addEventListener("click", function () {
+        imgProjects.classList.toggle("rotateIcon");
+        projectsList.classList.toggle("showLists");
+      });
+
+      showServices.addEventListener("click", function () {
+        imgServices.classList.toggle("rotateIcon");
+        servicesList.classList.toggle("showLists");
+      });
+    </script>
+  </body>
+</html>
